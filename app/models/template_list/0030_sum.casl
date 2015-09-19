@@ -1,0 +1,10 @@
+; C = A + B
+MAIN    START
+        LD      GR0, A
+        ADDA    GR0, B
+        ST      GR0, C
+        RET
+A       DC      1
+B       DC      2
+C       DS      1
+        END

@@ -1,0 +1,10 @@
+; 標準入力の例
+MAIN    START
+        IN      STR, LEN
+        OUT     STR, LEN
+        RET
+STR     DS      16
+LEN     DS      1
+        END
+__END__
+Hello, world.

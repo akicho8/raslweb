@@ -1,0 +1,7 @@
+; Hello, world.
+MAIN    START
+        OUT     STR, LEN
+        RET
+STR     DC      'Hello, world.'
+LEN     DC      13
+        END

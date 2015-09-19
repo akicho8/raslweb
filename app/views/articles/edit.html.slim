@@ -1,0 +1,38 @@
+- @page_title ||= Article.human_attribute_name(:edit)
+
+- if @error
+  .panel.panel-danger
+    .panel-heading
+      = @error.class.name
+    .panel-body
+      div style="font-family:monospace"
+        = simple_format(h(@error.message).gsub(" ", "&nbsp;"))
+
+- if @article.errors.any?
+  = @article.errors.full_messages.join
+
+.row
+  .col-sm-6
+    = form_for @article, html: { class: "form form-horizontal" } do |form|
+      .form-group
+        / = form.label :body, :class => "control-label"
+        pre
+          = form.text_area :body, :rows => [(@article.body.to_s.lines.count * 1.25).truncate, 8].max, :class => "form-control"
+      .form-group
+        = form.submit("実行", :class => "btn btn-primary", :name => :exec_flag)
+  .col-sm-6
+    - if @disasm
+      pre= @disasm
+.row
+  .col-sm-12
+    - if @processor
+      strong= "レジスター"
+      pre= @processor.regs_info
+
+    - if @stream
+      strong= "標準出力"
+      pre= @stream
+
+    - if @processor
+      strong= "メモリー"
+      pre= @memory_dump
