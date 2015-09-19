@@ -1,10 +1,10 @@
 GIT
   remote: git://github.com/akicho8/rasl.git
-  revision: 856016d42c8089f48cb579485d22fea62b44a6fa
+  revision: b9cdfed7b76e5065e203abd69009958ef621f047
   specs:
     rasl (0.0.1)
-      activemodel (>= 4.0.0)
-      activesupport (>= 4.0.0)
+      activemodel
+      activesupport
 
 GEM
   remote: https://rubygems.org/
