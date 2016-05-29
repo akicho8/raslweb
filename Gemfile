@@ -43,6 +43,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
 
+  gem 'capistrano', '3.4.0', require: false
   gem 'capistrano-rails', require: false        # capistrano + capistrano-bundler
   gem 'capistrano-passenger', require: false
   gem 'capistrano-rbenv', require: false
