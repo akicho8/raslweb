@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/akicho8/rasl.git
+  remote: https://github.com/akicho8/rasl.git
   revision: 06501d8e51302df2e9d23b6fd3c5cdd31687fb20
   specs:
     rasl (0.0.1)
@@ -258,4 +258,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.12.4
+   1.13.6
