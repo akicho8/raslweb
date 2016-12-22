@@ -47,6 +47,9 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 # set :rbenv_roles, :all # default value
 
+set :bundle_path, nil
+set :bundle_flags, '--deployment'
+
 desc 'env'
 task :env do
   on roles(:app) do
