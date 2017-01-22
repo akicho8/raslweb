@@ -6,7 +6,7 @@ html{lang="ja"}
     = favicon_link_tag
     = csrf_meta_tag
     meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no"
-    meta name="keywords" content="CASL,CASL2,Assembler,Simulator,COMET,アセンブラ,シミュレータ,アセンブリ言語,機械語,基本情報処理技術者,無料"
+    meta name="keywords" content="CASL,CASL2,Assembler,Simulator,COMET,アセンブラ,シミュレータ,アセンブリ言語,機械語,基本情報処理技術者"
     title= content_for?(:title) ? yield(:title) : "CASL Simulator"
 
     = stylesheet_link_tag "application", :media => "all"
@@ -29,35 +29,20 @@ html{lang="ja"}
           = link_to(AppConfig[:app_name], :root, class: "navbar-brand")
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav
-            / li= link_to("ランダム", polymorphic_path(:articles))
-            / li= link_to("チェックのみ", polymorphic_path(:articles, :only_checked => "true"))
-            / li= link_to("新規", [:new, :article])
-            / - if current_user
-            /   li= link_to("ログアウト", :destroy_user_session, :method => :delete)
-            / - else
-            /   li= link_to("ログイン", :new_user_session)
             - caret = content_tag(:span, '', :class => 'caret')
             li.dropdown
               = link_to("テンプレート#{caret}".html_safe, "#", :class => "dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false")
               ul.dropdown-menu role="menu"
                 - TemplateList.each do |record|
                   li= link_to(record[:title], polymorphic_path(:articles, :article => {:body => record[:body]}), :method => :post)
-            / li.dropdown
-            /   = link_to("難易度#{caret}".html_safe, "#", :class => "dropdown-toggle", :data => {:toggle => "dropdown"}, :role => "button", "aria-expanded" => "false")
-            /   - if current_user
-            /     ul.dropdown-menu role="menu"
-            /       - DifficultLevelInfo.each do |record|
-            /         - mark = ""
-            /         - if session[:difficult_level_key] == record.key.to_s
-            /           - mark = "*"
-            /         li= link_to("#{mark}#{record.name}", difficult_level_update_path(:key => record.key), :method => :put)
     .container
       #spinner style="display: none"
       = bootstrap_flash
       = yield
 
-    / footer.footer
-    /   .container
-    /     p
-    /       = "Powered by Rails #{Rails.version} and Ruby #{RUBY_VERSION}"
+    footer.footer
+      .container
+        .text-center
+          ul.list-inline
+            li= link_to("Github", "https://github.com/akicho8/rasl")
     = javascript_include_tag "application"

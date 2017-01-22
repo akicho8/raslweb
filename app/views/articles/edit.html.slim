@@ -19,7 +19,8 @@
         pre
           = form.text_area :body, :rows => [(@article.body.to_s.lines.count * 1.25).truncate, 8].max, :class => "form-control"
       .form-group
-        = form.submit("実行", :class => "btn btn-primary", :name => :exec_flag)
+        .text-center
+          = form.submit("実行", :class => "btn btn-lg btn-primary")
   .col-sm-6
     - if @disasm
       pre= @disasm
