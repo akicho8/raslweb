@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.6.1'
 
 set :application, 'raslweb'
 
@@ -36,6 +36,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 # set :default_env, { path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH" }
+set :default_env, { "DISABLE_DATABASE_ENVIRONMENT_CHECK" => "1" }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5

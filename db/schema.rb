@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,15 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20110607221600) do
 
-  create_table "articles", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "body",       limit: 65535
-    t.string   "unique_key", limit: 255,   null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.text "body"
+    t.string "unique_key", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_articles_on_title", unique: true
+    t.index ["unique_key"], name: "index_articles_on_unique_key"
   end
-
-  add_index "articles", ["title"], name: "index_articles_on_title", unique: true, using: :btree
-  add_index "articles", ["unique_key"], name: "index_articles_on_unique_key", using: :btree
 
 end

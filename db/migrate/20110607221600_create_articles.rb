@@ -1,5 +1,5 @@
-class CreateArticles < ActiveRecord::Migration
-  def change
+class CreateArticles < ActiveRecord::Migration[5.1]
+  def up
     create_table :articles do |t|
       t.string :title, :index => {:unique => true}
       t.text :body

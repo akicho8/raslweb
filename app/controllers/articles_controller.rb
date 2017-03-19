@@ -1,6 +1,8 @@
-# -*- coding: utf-8 -*-
+require "active_support/testing/stream"
 
 class ArticlesController < ApplicationController
+  include ActiveSupport::Testing::Stream
+
   before_action :load_object
   before_action :code_run, :only => [:show, :new, :edit]
   before_action :create_or_update, :only => [:create, :update]
